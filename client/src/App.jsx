@@ -4,6 +4,7 @@ import { AuthProvider } from './context/AuthContext'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Timer from './components/TImer'
+import ChartCard from './components/ChartCard'
 
 
 
@@ -15,6 +16,7 @@ function App() {
           <Navbar />
           <main className="flex-1">
             <Timer />
+            <ChartCard />
           </main>
           <Footer />
         </div>
