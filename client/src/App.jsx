@@ -3,14 +3,15 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import Timer from './components/Timer'
-import ChartCard from './components/ChartCard'
+import PrivateRoute from './components/PrivateRoute'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
-import Projects from './pages/Projects';
-
+import Projects from './pages/Projects'
+import Sessions from './pages/Sessions'
+import Insights from './pages/Insights'
+import Profile from './pages/Profile'
 
 function App() {
   return (
@@ -22,14 +23,13 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
-              <Route path='/register' element={<Register />}/>
-              <Route path='/dashboard' element={<Dashboard />}/>
-              <Route path='/projects' element={<Projects />}/>
+              <Route path="/register" element={<Register />} />
+              <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+              <Route path="/projects" element={<PrivateRoute><Projects /></PrivateRoute>} />
+              <Route path="/sessions" element={<PrivateRoute><Sessions /></PrivateRoute>} />
+              <Route path="/insights" element={<PrivateRoute><Insights /></PrivateRoute>} />
+              <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
             </Routes>
-            <Timer />
-            <ChartCard />
-            <Home />
-            
           </main>
           <Footer />
         </div>
